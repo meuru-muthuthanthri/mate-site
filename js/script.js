@@ -41,75 +41,87 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Active navigation link based on scroll position
 window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-links a');
-    
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (window.scrollY >= sectionTop - 200) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
+  // Only select visible sections
+  const sections = document.querySelectorAll(
+    'section:not([style*="display: none"])'
+  );
+  const navLinks = document.querySelectorAll(".nav-links a");
+
+  let current = "";
+
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+
+    if (window.scrollY >= sectionTop - 200) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === `#${current}`) {
+      link.classList.add("active");
+    }
+  });
 });
 
-// Testimonial Slider
-const testimonialItems = document.querySelectorAll('.testimonial-item');
-const prevBtn = document.querySelector('.prev-btn');
-const nextBtn = document.querySelector('.next-btn');
-let currentTestimonial = 0;
+// Testimonial Slider - Only initialize if testimonial section is visible
+const testimonialSection = document.querySelector('#testimonials');
+if (testimonialSection && window.getComputedStyle(testimonialSection).display !== 'none') {
+  const testimonialItems = document.querySelectorAll(".testimonial-item");
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
+  let currentTestimonial = 0;
 
-// Hide all testimonials except the first one
-testimonialItems.forEach((item, index) => {
+  // Hide all testimonials except the first one
+  testimonialItems.forEach((item, index) => {
     if (index !== 0) {
-        item.style.display = 'none';
+      item.style.display = "none";
     }
-});
+  });
 
-// Show testimonial function
-function showTestimonial(index) {
-    testimonialItems.forEach(item => {
-        item.style.display = 'none';
+  // Show testimonial function
+  function showTestimonial(index) {
+    testimonialItems.forEach((item) => {
+      item.style.display = "none";
     });
-    testimonialItems[index].style.display = 'block';
-}
+    testimonialItems[index].style.display = "block";
+  }
 
-// Next testimonial
-nextBtn.addEventListener('click', () => {
-    currentTestimonial++;
-    if (currentTestimonial >= testimonialItems.length) {
+  // Next testimonial
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      currentTestimonial++;
+      if (currentTestimonial >= testimonialItems.length) {
         currentTestimonial = 0;
-    }
-    showTestimonial(currentTestimonial);
-});
+      }
+      showTestimonial(currentTestimonial);
+    });
+  }
 
-// Previous testimonial
-prevBtn.addEventListener('click', () => {
-    currentTestimonial--;
-    if (currentTestimonial < 0) {
+  // Previous testimonial
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      currentTestimonial--;
+      if (currentTestimonial < 0) {
         currentTestimonial = testimonialItems.length - 1;
-    }
-    showTestimonial(currentTestimonial);
-});
+      }
+      showTestimonial(currentTestimonial);
+    });
+  }
 
-// Auto slide testimonials
-setInterval(() => {
-    currentTestimonial++;
-    if (currentTestimonial >= testimonialItems.length) {
+  // Auto slide testimonials
+  setInterval(() => {
+    if (window.getComputedStyle(testimonialSection).display !== "none") {
+      currentTestimonial++;
+      if (currentTestimonial >= testimonialItems.length) {
         currentTestimonial = 0;
+      }
+      showTestimonial(currentTestimonial);
     }
-    showTestimonial(currentTestimonial);
-}, 5000);
+  }, 5000);
+}
 
 // Form submission handling
 const contactForm = document.getElementById('contactForm');
@@ -156,18 +168,19 @@ if (newsletterForm) {
     });
 }
 
-// Animation on scroll
+// Animation on scroll - Only for visible elements
 window.addEventListener('scroll', () => {
-    const elements = document.querySelectorAll('.service-card, .portfolio-item, .about-image');
-    
-    elements.forEach(element => {
-        const elementPosition = element.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.3;
-        
-        if (elementPosition < screenPosition) {
-            element.classList.add('animate');
-        }
-    });
+  // Only select elements in visible sections
+  const elements = document.querySelectorAll(".service-card, .about-image");
+
+  elements.forEach((element) => {
+    const elementPosition = element.getBoundingClientRect().top;
+    const screenPosition = window.innerHeight / 1.3;
+
+    if (elementPosition < screenPosition) {
+      element.classList.add("animate");
+    }
+  });
 });
 
 // Add animation class to service cards
