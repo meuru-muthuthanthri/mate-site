@@ -1,0 +1,38 @@
+This file provides guidance for the portfolio images needed for the website.
+
+You will need to create or source the following portfolio images:
+
+1. portfolio-1.jpg - E-commerce Platform
+   - Image showing an e-commerce website or online store
+   - Size: 600x400px
+
+2. portfolio-2.jpg - Inventory Management System
+   - Image showing inventory/warehouse management software interface
+   - Size: 600x400px
+
+3. portfolio-3.jpg - Mobile Banking App
+   - Image showing a mobile banking application on a smartphone
+   - Size: 600x400px
+
+4. portfolio-4.jpg - Corporate Website Redesign
+   - Image showing a professional corporate website
+   - Size: 600x400px
+
+5. portfolio-5.jpg - Cloud Migration
+   - Image representing cloud computing or data migration
+   - Size: 600x400px
+
+6. portfolio-6.jpg - Digital Marketing Campaign
+   - Image showing digital marketing analytics or campaign visuals
+   - Size: 600x400px
+
+For each image:
+- Use high-quality, professional images
+- Ensure images are properly licensed for commercial use
+- Optimize images for web to ensure fast loading times
+- Maintain consistent aspect ratio and style across all portfolio images
+
+You can source images from:
+- Your actual project portfolio
+- Stock photo websites (like Unsplash, Pexels, or Shutterstock)
+- Create custom graphics that represent each project type 

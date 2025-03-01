@@ -1,0 +1,27 @@
+This file provides guidance for the client testimonial images needed for the website.
+
+You will need to create or source the following client images:
+
+1. client-1.jpg - Saman Perera (CEO, Lanka Retail Solutions)
+   - Professional headshot of a male business person
+   - Size: 200x200px (will be displayed as a circle)
+
+2. client-2.jpg - Priyanka Fernando (CTO, Ceylon Finance)
+   - Professional headshot of a female business person
+   - Size: 200x200px (will be displayed as a circle)
+
+3. client-3.jpg - Rohan De Silva (Marketing Director, Sri Travel)
+   - Professional headshot of a male business person
+   - Size: 200x200px (will be displayed as a circle)
+
+For each image:
+- Use high-quality, professional headshots
+- Ensure images are properly licensed for commercial use
+- Crop images to be square (they will be displayed as circles)
+- Use consistent lighting and style across all testimonial images
+- Ideally, use images of actual clients with their permission
+
+You can source images from:
+- Photos of your actual clients (with their permission)
+- Professional stock photo websites
+- If using fictional testimonials for demonstration purposes, clearly indicate this in your documentation 
